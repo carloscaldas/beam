@@ -684,44 +684,44 @@ object ZonalParkingManager extends LazyLogging {
     * @param includesHeader     true if the parkingDescription includes a csv-style header
     * @return
     */
-  def apply[GEO: GeoLevel](
-    parkingDescription: Iterator[String],
-    geoQuadTree: QuadTree[GEO],
-    idToGeoMapping: scala.collection.Map[Id[GEO], GEO],
-    geoToTAZ: GEO => TAZ,
-    geo: GeoUtils,
-    random: Random,
-    minSearchRadius: Double,
-    maxSearchRadius: Double,
-    boundingBox: Envelope,
-    includesHeader: Boolean = true,
-    vehicleManagers: Map[Id[VehicleManager], VehicleManager],
-    chargingPointConfig: BeamConfig.Beam.Agentsim.ChargingNetworkManager.ChargingPoint
-  ): ZonalParkingManager[GEO] = {
-    val parking = ParkingZoneFileUtils.fromIterator(
-      parkingDescription,
-      random,
-      1.0,
-      1.0,
-      true,
-      VehicleManager.privateVehicleManager.managerId
-    )
-    new ZonalParkingManager(
-      geoQuadTree,
-      idToGeoMapping,
-      geoToTAZ,
-      geo,
-      parking.zones.toArray,
-      parking.tree,
-      random,
-      minSearchRadius,
-      maxSearchRadius,
-      boundingBox,
-      ParkingMNL.DefaultMNLParameters,
-      vehicleManagers,
-      chargingPointConfig
-    )
-  }
+//  def apply[GEO: GeoLevel](
+//    parkingDescription: Iterator[String],
+//    geoQuadTree: QuadTree[GEO],
+//    idToGeoMapping: scala.collection.Map[Id[GEO], GEO],
+//    geoToTAZ: GEO => TAZ,
+//    geo: GeoUtils,
+//    random: Random,
+//    minSearchRadius: Double,
+//    maxSearchRadius: Double,
+//    boundingBox: Envelope,
+//    includesHeader: Boolean = true,
+//    vehicleManagers: Map[Id[VehicleManager], VehicleManager],
+//    chargingPointConfig: BeamConfig.Beam.Agentsim.ChargingNetworkManager.ChargingPoint
+//  ): ZonalParkingManager[GEO] = {
+//    val parking = ParkingZoneFileUtils.fromIterator(
+//      parkingDescription,
+//      random,
+//      1.0,
+//      1.0,
+//      true,
+//      VehicleManager.privateVehicleManager.managerId
+//    )
+//    new ZonalParkingManager(
+//      geoQuadTree,
+//      idToGeoMapping,
+//      geoToTAZ,
+//      geo,
+//      parking.zones.toArray,
+//      parking.tree,
+//      random,
+//      minSearchRadius,
+//      maxSearchRadius,
+//      boundingBox,
+//      ParkingMNL.DefaultMNLParameters,
+//      vehicleManagers,
+//      chargingPointConfig
+//    )
+//  }
 
   /**
     * builds a ZonalParkingManager Actor
