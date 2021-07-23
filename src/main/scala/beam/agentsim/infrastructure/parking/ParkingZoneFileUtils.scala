@@ -348,7 +348,6 @@ object ParkingZoneFileUtils extends LazyLogging {
     * @return a ParkingZone and it's corresponding ParkingType and Taz Id
     */
   private def parseParkingZoneFromRow[GEO: GeoLevel](
-//    csvRow: String,
     csvRow: Map[String, String],
     nextParkingZoneId: Int,
     rand: Random,
