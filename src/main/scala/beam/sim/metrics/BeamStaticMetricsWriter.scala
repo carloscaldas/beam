@@ -92,9 +92,9 @@ object BeamStaticMetricsWriter {
         val parkingStallCountScalingFactor = beamServices.beamConfig.beam.agentsim.taz.parkingStallCountScalingFactor
         val (chargingDepots, _) =
           ParkingZoneFileUtils.fromFile[TAZ](
-            chargingDepotsFilePath,
-            rand,
-            parkingStallCountScalingFactor,
+            filePath = chargingDepotsFilePath,
+            rand = rand,
+            parkingStallCountScalingFactor = parkingStallCountScalingFactor,
             vehicleManagerId =
               Some(beamServices.beamConfig.beam.agentsim.agents.rideHail.vehicleManagerId.createId[VehicleManager])
           )
@@ -115,9 +115,9 @@ object BeamStaticMetricsWriter {
           val rand = new Random(beamScenario.beamConfig.matsim.modules.global.randomSeed)
           val (publicChargers, _) =
             ParkingZoneFileUtils.fromFile[TAZ](
-              publicFastChargerFilePath,
-              rand,
-              parkingStallCountScalingFactor,
+              filePath = publicFastChargerFilePath,
+              rand = rand,
+              parkingStallCountScalingFactor = parkingStallCountScalingFactor,
               vehicleManagerId = Some(VehicleManager.privateVehicleManager.managerId)
             )
 
